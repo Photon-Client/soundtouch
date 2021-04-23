@@ -27,7 +27,8 @@ LOCAL_SRC_FILES := soundtouch-jni.cpp ../../SoundTouch/AAFilter.cpp  ../../Sound
                 ../../SoundTouch/RateTransposer.cpp ../../SoundTouch/SoundTouch.cpp \
                 ../../SoundTouch/InterpolateCubic.cpp ../../SoundTouch/InterpolateLinear.cpp \
                 ../../SoundTouch/InterpolateShannon.cpp ../../SoundTouch/TDStretch.cpp \
-                ../../SoundTouch/BPMDetect.cpp ../../SoundTouch/PeakFinder.cpp 
+                ../../SoundTouch/BPMDetect.cpp ../../SoundTouch/PeakFinder.cpp \
+                ../../SoundTouchDLL/SoundTouchDLL.cpp
 
 # for native audio
 LOCAL_SHARED_LIBRARIES += -lgcc 
@@ -40,6 +41,7 @@ LOCAL_LDLIBS    += -llog
 # Custom Flags: 
 # -fvisibility=hidden : don't export all symbols
 LOCAL_CFLAGS += -fvisibility=hidden -fdata-sections -ffunction-sections -ffast-math
+LOCAL_CFLAGS += -DDLL_EXPORTS
 
 # OpenMP mode : enable these flags to enable using OpenMP for parallel computation 
 #LOCAL_CFLAGS += -fopenmp
